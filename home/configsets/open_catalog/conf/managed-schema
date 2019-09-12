@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Solr managed schema - automatically generated - DO NOT EDIT -->
-<schema name="example-data-driven-schema" version="1.6">
+<schema name="open_catalog" version="1.6">
   <uniqueKey>id</uniqueKey>
   <fieldType name="ancestor_path" class="solr.TextField">
     <analyzer type="index">
@@ -178,9 +178,10 @@
   <field name="_version_" type="plong" indexed="true" stored="true"/>
   <field name="title" type="string" indexed="true" stored="true"/>
   <field name="summary" type="string" indexed="true" stored="true"/>
-  <field name="description" type="text_en" indexed="true" stored="true"/>
+  <field name="description" type="text_en" multiValued="true" indexed="true" stored="true"/>
   <field name="keywords" type="string" multiValued="true" indexed="true" stored="true"/>
-  <field name="licence" type="string" indexed="true" stored="true"/>
+  <field name="license" type="string" indexed="true" stored="true"/>
+  <field name="date_creation" type="pdate" indexed="true" stored="true"/>
   <field name="_text_" type="text_general" multiValued="true" indexed="true" stored="false"/>
   
   <!--
