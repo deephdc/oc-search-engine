@@ -1,0 +1,37 @@
+{
+    "title": "DEEP OC Speech to Text",
+    "summary": "Speech to text using Tensorflow",
+    "description": [
+                "This is a plug-and-play tool for real-time pose estimation using deep neural networks. The original model, weights, code, etc. was created by Google and can be found at https://github.com/tensorflow/tfjs-models/tree/master/posenet.",
+                "PoseNet can be used to estimate either a single pose or multiple poses, meaning there is a version of the algorithm that can detect only one person in an image/video and one version that can detect multiple persons in an image/video.",
+                "The module implemented here works on pictures (either uploaded or using an URL) and gives as output the different body keypoints with the corresponding coordinates and the associated key score"
+	],
+    "keywords": [
+        "services",
+        "docker"
+    ],
+    "license": "Apache 2.0",
+    "date_creation": "2019-07-31",
+    "sources": {
+		"dockerfile_repo": "https://github.com/deephdc/DEEP-OC-posenet-tf",
+		"docker_registry_repo": "deephdc/deep-oc-posenet-tf",
+		"code": "https://github.com/deephdc/mods"
+	},
+    "continuous_integration": {
+        "build_status_badge": "https://jenkins.indigo-datacloud.eu/buildStatus/icon?job=Pipeline-as-code/DEEP-OC-org/DEEP-OC-posenet-tf/master",
+        "build_status_url": "https://jenkins.indigo-datacloud.eu/job/Pipeline-as-code/job/DEEP-OC-org/job/DEEP-OC-posenet-tf/job/master"
+    },
+    "tosca": [
+        {
+            "title": "Mesos (CPU)",
+            "url": "https://raw.githubusercontent.com/indigo-dc/tosca-templates/master/deep-oc/deep-oc-plants-classification-tf-mesos-cpu.yml",
+            "inputs": [
+                "rclone_conf",
+                "rclone_url",
+                "rclone_vendor",
+                "rclone_user",
+                "rclone_pass"
+            ]
+        }
+    ]
+}

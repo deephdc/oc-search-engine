@@ -1,0 +1,52 @@
+{
+    "title": "DEEP OC Seeds Classification (Theano)",
+    "summary": "A trained ResNet50 on Theano to classify seeds.",
+    "description": [
+        "**This service is deprecated. Please refer to the [newer Tensorflow version](deep-oc-seeds-classification.html)**.\n",
+
+        "Citizen science has become a powerful force for scientific inquiry, providing researchers with access to a vast array of",
+        "data points while connecting non scientists to the real process of science. This citizen-researcher relationship",
+        "creates a very interesting synergy, allowing for the creation, execution, and analysis of research projects. ",
+        "With this in mind, a Convolutional Neural Network has been trained to identify seed images in collaboration ",
+        "with [Spanish Royal Botanical Garden](http://www.rjb.csic.es).\n",
+
+        "This Docker container contains a trained Convolutional Neural network optimized for seeds identification using",
+        "images. The architecture used is an ResNet50 [1] network using Lasagne on top of Theano.\n",
+
+        "As training dataset we have used a collection of images from the [Spanish Royal Botanical Garden](http://www.rjb.csic.es)",
+        "which consists of around 28K images from 743 species and 493 genera.\n",
+
+        "<img class='fit', src='https://raw.githubusercontent.com/deephdc/DEEP-OC-seeds-classification/master/images/seeds.png'/>\n",
+
+        "**References**\n",
+        "[1]: He, K., Zhang, X., Ren, S., & Sun, J. (2016). Deep residual learning for image recognition. In Proceedings of the IEEE conference on computer vision and pattern recognition (pp. 770-778)\n"
+	],
+    "keywords": [
+        "deprecated/services", "library/theano", "library/lasagne", "docker"
+    ],
+    "license": "Apache 2.0",
+    "date_creation": "2019-01-01",
+    "sources": {
+		"dockerfile_repo": "https://github.com/deephdc/DEEP-OC-seeds-classification",
+		"docker_registry_repo": "deephdc/deep-oc-seeds-classification",
+        "code": "https://github.com/deephdc/plant-classification-theano",
+        "pre_trained_weights": "https://cephrgw01.ifca.es:8080/swift/v1/seeds/"
+	},
+    "continuous_integration": {
+        "build_status_badge": "https://jenkins.indigo-datacloud.eu/buildStatus/icon?job=Pipeline-as-code/DEEP-OC-org/DEEP-OC-seeds-classification/master",
+        "build_status_url": "https://jenkins.indigo-datacloud.eu/job/Pipeline-as-code/job/DEEP-OC-org/job/DEEP-OC-seeds-classification/job/master"
+    },
+    "tosca": [
+        {
+            "title": "Mesos (CPU)",
+            "url": "https://raw.githubusercontent.com/indigo-dc/tosca-templates/master/deep-oc/deep-oc-seeds-classification-mesos-cpu.yml",
+            "inputs": [
+                "rclone_conf",
+                "rclone_url",
+                "rclone_vendor",
+                "rclone_user",
+                "rclone_pass"
+            ]
+        }
+    ]
+}

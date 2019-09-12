@@ -1,0 +1,57 @@
+{
+    "title": "DEEP OC Conus Classification (Theano)",
+    "summary": "A trained ResNet50 on Theano to classify conus.",
+    "description": [
+        "**This service is deprecated. Please refer to the [newer Tensorflow version](deep-oc-conus-classification.html).**\n",
+
+        "Citizen science has become a powerful force for scientific inquiry, providing researchers with access to a vast array of",
+        "data points while connecting non scientists to the real process of science. This citizen-researcher relationship",
+        "creates a very interesting synergy, allowing for the creation, execution, and analysis of research projects. ",
+        "With this in mind, a Convolutional Neural Network has been trained to identify conus marine snails at species ",
+        "level [1] in collaboration with the [Natural Science Museum of Madrid](http://www.mncn.csic.es/). The taxonomy ",
+        "of these snails has changed significantly several times during recent years and the introduction of Deep Learning",
+        "techniques allowing to classify them is a very valuable tool for the experts.\n",
+
+        "This Docker container contains a trained Convolutional Neural network optimized for conus identification using",
+        "images. The architecture used is an ResNet50 [2] network using Lasagne on top of Theano.\n",
+
+        "The training dataset has been provided by the [Natural Science Museum of Madrid](http://www.mncn.csic.es/) and ",
+        "it consists on a dataset containing images of 68 species of conus covering three different regions: the Panamic ",
+        "region; the South African region; and the Western Atlantic and Mediterranean region.\n",
+
+        "<img class='fit', src='https://raw.githubusercontent.com/deephdc/DEEP-OC-conus-classification/master/images/conus.png'/>\n",
+        
+        "**References**\n",
+        "[1]: Puillandre, N.; Duda, T.F.; Meyer, C.; Olivera, B.M.; Bouchet, P. (2014). [One, four or 100 genera? A new classification of the cone snails]",
+        "(https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4541476/). Journal of Molluscan Studies. 81 (1): 1-23.\n",
+        "[2]: He, K., Zhang, X., Ren, S., & Sun, J. (2016). Deep residual learning for image recognition. In Proceedings of the IEEE conference on computer vision and pattern recognition (pp. 770-778)\n"
+	],
+    "keywords": [
+        "deprecated/services", "library/theano", "library/lasagne", "docker"
+    ],
+    "license": "Apache 2.0",
+    "date_creation": "2019-01-01",
+    "sources": {
+		"dockerfile_repo": "https://github.com/deephdc/DEEP-OC-conus-classification",
+		"docker_registry_repo": "deephdc/deep-oc-conus-classification",
+        "code": "https://github.com/deephdc/plant-classification-theano",
+        "pre_trained_weights": "https://cephrgw01.ifca.es:8080/swift/v1/conus/"
+	},
+    "continuous_integration": {
+        "build_status_badge": "https://jenkins.indigo-datacloud.eu/buildStatus/icon?job=Pipeline-as-code/DEEP-OC-org/DEEP-OC-conus-classification/master",
+        "build_status_url": "https://jenkins.indigo-datacloud.eu/job/Pipeline-as-code/job/DEEP-OC-org/job/DEEP-OC-conus-classification/job/master"
+    },
+    "tosca": [
+        {
+            "title": "Mesos (CPU)",
+            "url": "https://raw.githubusercontent.com/indigo-dc/tosca-templates/master/deep-oc/deep-oc-conus-classification-mesos-cpu.yml",
+            "inputs": [
+                "rclone_conf",
+                "rclone_url",
+                "rclone_vendor",
+                "rclone_user",
+                "rclone_pass"
+            ]
+        }
+    ]
+}

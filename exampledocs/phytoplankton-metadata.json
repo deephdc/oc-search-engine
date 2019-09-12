@@ -1,0 +1,52 @@
+{
+    "title": "DEEP OC Phytoplankton Classification (Theano)",
+    "summary": "A trained ResNet50 on Theano to classify phytoplankton.",
+    "description": [
+        "**This service is deprecated. Please refer to the [newer Tensorflow version](deep-oc-phytoplankton-classification.html)**.\n",
+
+        "Citizen science has become a powerful force for scientific inquiry, providing researchers with access to a vast array of",
+        "data points while connecting non scientists to the real process of science. This citizen-researcher relationship",
+        "creates a very interesting synergy, allowing for the creation, execution, and analysis of research projects.",
+        "With this in mind, a Convolutional Neural Network has been trained to identify phytoplankton in collaboration",
+        "with the [Vlaams Instituut voor de Zee](http://www.vliz.be/).\n",
+
+        "This Docker container contains a trained Convolutional Neural network optimized for phytoplankton identification using",
+        "images. The architecture used is an ResNet50 [1] network using Lasagne on top of Theano.\n",
+
+        "As training dataset we have used a collection of images from the [Vlaams Instituut voor de Zee](http://www.vliz.be/)",
+        "which consists of around 650K images from 60 classes of phytoplankton.\n",
+
+        "<img class='fit', src='https://raw.githubusercontent.com/deephdc/DEEP-OC-phytoplankton-classification/master/images/phytoplankton.png'/>\n",
+
+        "**References**\n",
+        "[1]: He, K., Zhang, X., Ren, S., & Sun, J. (2016). Deep residual learning for image recognition. In Proceedings of the IEEE conference on computer vision and pattern recognition (pp. 770-778)\n"
+	],
+    "keywords": [
+        "deprecated/services", "library/theano", "library/lasagne", "docker"
+    ],
+    "license": "Apache 2.0",
+    "date_creation": "2019-01-01",
+    "sources": {
+		"dockerfile_repo": "https://github.com/deephdc/DEEP-OC-phytoplankton-classification",
+		"docker_registry_repo": "deephdc/deep-oc-phytoplankton-classification",
+        "code": "https://github.com/deephdc/plant-classification-theano",
+        "pre_trained_weights": "https://cephrgw01.ifca.es:8080/swift/v1/plankton/"
+	},
+    "continuous_integration": {
+        "build_status_badge": "https://jenkins.indigo-datacloud.eu/buildStatus/icon?job=Pipeline-as-code/DEEP-OC-org/DEEP-OC-phytoplankton-classification/master",
+        "build_status_url": "https://jenkins.indigo-datacloud.eu/job/Pipeline-as-code/job/DEEP-OC-org/job/DEEP-OC-phytoplankton-classification/job/master"
+    },
+    "tosca": [
+        {
+            "title": "Mesos (CPU)",
+            "url": "https://raw.githubusercontent.com/indigo-dc/tosca-templates/master/deep-oc/deep-oc-phytoplankton-classification-mesos-cpu.yml",
+            "inputs": [
+                "rclone_conf",
+                "rclone_url",
+                "rclone_vendor",
+                "rclone_user",
+                "rclone_pass"
+            ]
+        }
+    ]
+}

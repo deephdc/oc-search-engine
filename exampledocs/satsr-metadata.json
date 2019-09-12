@@ -1,0 +1,58 @@
+{
+    "title": "DEEP OC Satellite super resolution",
+    "summary": "A trained network to super resolve low resolution bands to high resolution in multispectral satellite imagery.",
+    "description": [
+        "With the latest missions launched by the European Space Agency (ESA) and National Aeronautics and Space Administration (NASA)",
+        "equipped with the latest technologies in multi-spectral sensors, we face an unprecedented amount of data with spatial and",
+        "temporal resolutions never reached before. Exploring the potential of this data with state-of-the-art AI techniques like",
+        "Deep Learning, could potentially change the way we think about and protect our planet's resources.\n",
+
+        "This Docker container contains  a plug-and-play tool to perform super-resolution on satellite imagery.",
+        "It uses Deep Learning to provide a better performing alternative to classical pansharpening (more details in [1]).\n",
+
+        "Right now we are supporting super-resolution for the following satellites:",
+        "* [Sentinel 2](https://sentinel.esa.int/web/sentinel/missions/sentinel-2)",
+        "* [Landsat 8](https://landsat.gsfc.nasa.gov/landsat-8/)",
+        "* [VIIRS](https://ncc.nesdis.noaa.gov/VIIRS/)",
+        "* [MODIS](https://terra.nasa.gov/about/terra-instruments/modis)\n",
+
+        "More information on the satellites and processing levels that are supported can be found [here](https://github.com/deephdc/satsr/blob/master/reports/additional_notes.md)",
+        "along with some [demo images](https://github.com/deephdc/satsr/tree/master/reports/figures) of the super-resolutions performed in non-training data.\n",
+        "If you want to perform super-resolution on another satellite, go to the [training section](https://github.com/deephdc/satsr#train-other-satellites)",
+        "to see how you can easily add support for additional satellites. We are happy to accept PRs!\n",
+
+        "<img class='fit', src='https://raw.githubusercontent.com/deephdc/DEEP-OC-satsr/master/images/satsr.png'/>\n",
+
+        "**References**\n",
+
+        "[1]: Lanaras, C., Bioucas-Dias, J., Galliani, S., Baltsavias, E., & Schindler, K. (2018). [Super-resolution of Sentinel-2 images: Learning a globally applicable deep neural network](https://arxiv.org/abs/1803.04271). ISPRS Journal of Photogrammetry and Remote Sensing, 146, 305-319."
+	],
+    "keywords": [
+        "models", "services", "library/tensorflow", "library/keras", "docker"
+    ],
+    "license": "Apache 2.0",
+    "cite_url": "https://doi.org/10.1016/j.isprsjprs.2018.09.018",
+    "date_creation": "2019-01-01",
+    "sources": {
+		"dockerfile_repo": "https://github.com/deephdc/DEEP-OC-satsr",
+		"docker_registry_repo": "deephdc/deep-oc-satsr",
+		"code": "https://github.com/deephdc/satsr"
+	},
+    "continuous_integration": {
+        "build_status_badge": "https://jenkins.indigo-datacloud.eu/buildStatus/icon?job=Pipeline-as-code/DEEP-OC-org/DEEP-OC-satsr/master",
+        "build_status_url": "https://jenkins.indigo-datacloud.eu/job/Pipeline-as-code/job/DEEP-OC-org/job/DEEP-OC-satsr/job/master"
+    },
+    "tosca": [
+        {
+            "title": "Mesos (CPU)",
+            "url": "https://raw.githubusercontent.com/indigo-dc/tosca-templates/master/deep-oc/deep-oc-satsr-mesos-cpu.yml",
+            "inputs": [
+                "rclone_conf",
+                "rclone_url",
+                "rclone_vendor",
+                "rclone_user",
+                "rclone_pass"
+            ]
+        }
+    ]
+}
