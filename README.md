@@ -19,5 +19,14 @@ usage: ./update-index.sh <file>
 
 This script maps necessary fields from the metadata.json file to Solr schema, so they are properly indexed and later matched against search queries.
 
+### Required fields in metadata.json
+* /sources/dockerfile_repo - this field is used as an unique ID for indexing and re-indexing DEEP OC application
+* /title
+* /summary
+* /description
+* /keywords
+* /license
+* /date_creation
+
 ## Searching DEEP OC entries
 TODO:
