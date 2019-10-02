@@ -9,10 +9,7 @@ To download the base image and run the container, execute the `start.sh` script 
 
 By default, Solr server will listen on `http://127.0.0.1:8983`. To adjust the port and/or other parameters, edit the `start.sh`.
 
-## Index new DEEP-OC entry
-TODO:
-
-## Re-Index existing DEEP-OC entry
+## Indexing new DEEP-OC entries and re-indexing the existing ones
 TODO:
 
 ## Searching DEEP-OC entries
