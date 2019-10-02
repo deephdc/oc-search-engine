@@ -1,4 +1,15 @@
 {
-	"title": "test",
-	"summary": "summary"
+	"title": "test title",
+	"summary": "test summary",
+	"sources" : {
+		"dockerfile_repo": "1"
+	},
+	"descritpion": "test description",
+	"keywords": [
+		"kw1",
+		"kw2",
+		"kw3"
+	],
+	"license": "test license",
+	"date_creation": "2019-12-24"
 }
