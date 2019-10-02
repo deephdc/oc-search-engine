@@ -1,18 +1,32 @@
 # Search engine for the DEEP Open Catalog
+This container provides a basic full-text search service for the DEEP Open Catalog. The search service is based on Solr, a well-known and widely used search platform. This container uses the official Solr Docker image.
 
 ## Running the container
-To download and run Solr docker image, execute the `start.sh` script from the base directory:
+To download the base image and run the container, execute the `start.sh` script from the base directory:
 ```bash
 ./start.sh
 ```
 
-By default, Solr server will listen on `http://127.0.0.1:8983`
+By default, Solr server will listen on `http://127.0.0.1:8983`. To adjust the port and/or other parameters, edit the `start.sh`.
 
-## Index new DEEP-OC entry
-TODO:
+## Indexing new DEEP OC entries and re-indexing the existing ones
+To index a new DEEP OC application, you just need to take its `metadata.json` file and send it to Solr to index it. For instance, [MODS's metadata.json](https://github.com/deephdc/DEEP-OC-mods/blob/master/metadata.json). For this purpose, there is a [`update-index.sh`](https://github.com/deephdc/oc-search-engine/blob/master/scripts/update-index.sh) script:
 
-## Re-Index existing DEEP-OC entry
-TODO:
+```bash
+usage: ./update-index.sh <file>
+  file  : JSON file with application metadata
+```
 
-## Searching DEEP-OC entries
+This script maps necessary fields from the metadata.json file to Solr schema, so they are properly indexed and later matched against search queries.
+
+### Required fields in metadata.json
+* /sources/dockerfile_repo - this field is used as an unique ID for indexing and re-indexing DEEP OC application
+* /title
+* /summary
+* /description
+* /keywords
+* /license
+* /date_creation
+
+## Searching DEEP OC entries
 TODO:
