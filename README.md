@@ -47,7 +47,7 @@ cd scripts/
 ./index-examples.sh
 ```
 ### Search with pagination
-Search for any entry and start displaying results on the second page (start=2*rows-1) with 3 results per page (rows=3)
+Search for any entry and start displaying results on the second page (`start=2*rows-1`) with 3 results per page (`rows=3`)
 ```bash
 curl "http://127.0.0.1:8983/solr/open_catalog/select?q=*&start=3&rows=3"
 ```
