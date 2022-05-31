@@ -35,7 +35,7 @@
 		"dockerfile_repo": "https://github.com/deephdc/DEEP-OC-conus-classification",
 		"docker_registry_repo": "deephdc/deep-oc-conus-classification",
         "code": "https://github.com/deephdc/plant-classification-theano",
-        "pre_trained_weights": "https://cephrgw01.ifca.es:8080/swift/v1/conus/"
+        "pre_trained_weights": "https://api.cloud.ifca.es:8080/swift/v1/conus/"
 	},
     "continuous_integration": {
         "build_status_badge": "https://jenkins.indigo-datacloud.eu/buildStatus/icon?job=Pipeline-as-code/DEEP-OC-org/DEEP-OC-conus-classification/master",
