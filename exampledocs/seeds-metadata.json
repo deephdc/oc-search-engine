@@ -30,7 +30,7 @@
 		"dockerfile_repo": "https://github.com/deephdc/DEEP-OC-seeds-classification",
 		"docker_registry_repo": "deephdc/deep-oc-seeds-classification",
         "code": "https://github.com/deephdc/plant-classification-theano",
-        "pre_trained_weights": "https://cephrgw01.ifca.es:8080/swift/v1/seeds/"
+        "pre_trained_weights": "https://api.cloud.ifca.es:8080/swift/v1/seeds/"
 	},
     "continuous_integration": {
         "build_status_badge": "https://jenkins.indigo-datacloud.eu/buildStatus/icon?job=Pipeline-as-code/DEEP-OC-org/DEEP-OC-seeds-classification/master",
